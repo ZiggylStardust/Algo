@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.math.BigInteger;
 import java.util.Scanner;
 
 import static java.lang.System.nanoTime;
@@ -6,67 +6,64 @@ import static java.lang.System.nanoTime;
 public class Pfeilweg {
     static int ziel;
     static int schritte;
-    static long anzahlWege;
-    static Long[][][] memory;    //x| y|  schritte noch machbar| speichert
+    static BigInteger anzahlWege;
+    static BigInteger[][][] memory;    //x| y|  schritte noch machbar| speichert
 
     public static void main(String[] args) {
-        System.out.println("durchgänge eingeben");
-        Scanner scanner = new Scanner(System.in);
-        int durchläufe = scanner.nextInt();
-        scanner.close();
-        for (int n = 0; n < durchläufe; n++) {
-            ziel = n;
+        System.out.println("Ziel eingeben");
+            Scanner scanner = new Scanner(System.in);
+            ziel = scanner.nextInt();
+            scanner.close();
             schritte = 2 * ziel;
-            memory = new Long[schritte + 1][schritte + 1][schritte + 1];
+            memory=new BigInteger[schritte+1][schritte+1][schritte+1];
             long anfang = nanoTime();
 
-            anzahlWege = laufschritt(0, 0, schritte);
+            anzahlWege= laufschritt(0, 0, schritte);
             long ende = nanoTime();
 
             long dauer = ende - anfang;
 
-            System.out.println("ziel: " + ziel + " wege: " + anzahlWege /*+ " dauer: " + dauer / 1e9 + "sec"*/);
-            Arrays.fill(memory, null);
-
+            System.out.println("ziel: "+ziel +" wege: " + anzahlWege + " dauer: " + dauer/1e9+ "sec");
         }
-    }
 
-    public static long laufschritt(int x, int y, int n) {
-        if (x < 0 || y < 0) {
-            return 0;
-        } else {
+
+    public static BigInteger laufschritt(int x, int y, int n) {
+        if(x<0||y<0){
+            return BigInteger.ZERO;
+        }
+        else {
             if (memory[x][y][n] != null) {
-                if (memory[x][y][n] > 0) {
+                if (memory[x][y][n].compareTo(BigInteger.ZERO)==1) {
                     return memory[x][y][n];
                 } else {
-                    return 0;
+                    return BigInteger.ZERO;
                 }
             }
 
 
             if (y == ziel && x == 0 && n == 0) {
-                memory[x][y][n] = 1l;
-                return 1;
+                memory[x][y][n] = BigInteger.ONE;
+                return BigInteger.ONE;
 
 
             } else if (n == 0) {
-                memory[x][y][n] = 0l;
-                return 0;
+                memory[x][y][n] = BigInteger.ZERO;
+                return BigInteger.ZERO;
 
             } else if (n == x && n == ziel - y) {
-                memory[x][y][n] = 1l;
-                return 1;
+                memory[x][y][n] = BigInteger.ONE;
+                return BigInteger.ONE;
             } else if (y >= 0 && x >= 0 && n >= x && n >= ziel - y) {
-                long richtigeWege;
+                BigInteger richtigeWege;
                 //hoch
                 richtigeWege =
-                        laufschritt(x, y + 1, n - 1) +
+                        laufschritt(x, y + 1, n - 1) .add(
                                 //runter
-                                laufschritt(x, y - 1, n - 1) +
+                                laufschritt(x, y - 1, n - 1)).add(
                                 //rechts
-                                laufschritt(x + 1, y, n - 1) +
+                                laufschritt(x + 1, y, n - 1)).add(
                                 //links hoch
-                                laufschritt(x - 1, y + 1, n - 1);
+                                laufschritt(x - 1, y + 1, n - 1));
                 memory[x][y][n] = richtigeWege;
                 return richtigeWege;
 
@@ -74,7 +71,7 @@ public class Pfeilweg {
             }
         }
 
-        return 0;
+        return BigInteger.ZERO;
     }
 }
 
