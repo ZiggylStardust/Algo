@@ -17,22 +17,25 @@ public class Pfeilweg {
     static BigInteger[][][] memory;    //x| y|  schritte noch machbar| speichert die anzahl an wege, die von diesem punkt bei dieser anzahl an übrigen schrittten möglich sind
 
     public static void main(String[] args) {
+
         System.out.println("Ziel eingeben");
         Scanner scanner = new Scanner(System.in);
-        ziel = scanner.nextInt();
+        int anzahl = scanner.nextInt();
         scanner.close();
-        schritte = 2 * ziel;
-        memory = new BigInteger[schritte + 1][schritte + 1][schritte + 1];
-        long anfang = nanoTime();
+        for (int n = 0; n < anzahl; n++) {
+            ziel = n;
+            schritte = 2 * ziel;
+            memory = new BigInteger[schritte + 1][schritte + 1][schritte + 1];
+            long anfang = nanoTime();
 
-        anzahlWege = laufschritt(0, 0, schritte);
-        long ende = nanoTime();
+            anzahlWege = laufschritt(0, 0, schritte);
+            long ende = nanoTime();
 
-        long dauer = ende - anfang;
+            long dauer = ende - anfang;
 
-        System.out.println("ziel: " + ziel + " wege: " + anzahlWege + " dauer: " + dauer / 1e9 + "sec");
+            System.out.println("ziel: " + ziel + " wege: " + anzahlWege + " dauer: " + dauer / 1e9 + "sec");
 
-
+        }
     }
 
     /**
