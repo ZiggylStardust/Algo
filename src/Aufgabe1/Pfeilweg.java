@@ -2,7 +2,6 @@ package Aufgabe1;
 
 import java.math.BigInteger;
 import java.util.Scanner;
-
 import static java.lang.System.nanoTime;
 
 /**

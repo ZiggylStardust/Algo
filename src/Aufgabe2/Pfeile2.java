@@ -25,8 +25,7 @@ public class Pfeile2 {
         Scanner scanner = new Scanner(System.in);
         int anzahl = scanner.nextInt();
         scanner.close();
-        PrintWriter writer = new PrintWriter("Pfeile bis " + anzahl + ".txt");
-        long anfang = nanoTime();
+        PrintWriter writer = new PrintWriter("Pfeile bis " + (anzahl-1) + ".txt");
 
         for (int n = 0; n < anzahl; n++) {
             ziel = n;
@@ -41,8 +40,8 @@ public class Pfeile2 {
         }
         long ende = nanoTime();
 
-        long dauer = ende - anfang;
-        System.out.println("dauer" + "dauer: " + dauer / 1e9 + "sec");
+        //long dauer = ende - anfang;
+        //System.out.println("dauer" + "dauer: " + dauer / 1e9 + "sec");
 
         writer.close();
 
@@ -76,7 +75,6 @@ public class Pfeile2 {
 
                                 laufschritt(x + 1, y, 2 )).add(last == 4 ? BigInteger.ZERO :                        //rechts
 
-
                                 laufschritt(x - 1, y + 1, 3 )).add(last == 3 ? BigInteger.ZERO :                        //links hoch
 
                                 laufschritt(x + 1, y - 1, 4 )).add(last == 1 ? BigInteger.ZERO :                        //rechts runter
@@ -87,8 +85,10 @@ public class Pfeile2 {
                 cache[x][y][last] = ergbniss;
 
 
+
                 return ergbniss;
             }
+
 
         }
         return BigInteger.ZERO;

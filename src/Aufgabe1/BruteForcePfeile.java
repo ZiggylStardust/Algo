@@ -1,6 +1,5 @@
 package Aufgabe1;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.nanoTime;
