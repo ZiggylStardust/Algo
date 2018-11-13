@@ -1,4 +1,4 @@
-package Aufgabe6;
+package Aufgabe6.Positions;
 
 import java.util.ArrayList;
 

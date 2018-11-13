@@ -1,4 +1,6 @@
-package Aufgabe6;
+package Aufgabe6.Positions.Figures;
+
+import Aufgabe6.Positions.Figure;
 
 import java.util.ArrayList;
 
@@ -6,7 +8,7 @@ public class TFigure extends Figure {
   public ArrayList<boolean[][]> figure = new ArrayList<>();
 
 
-  TFigure() {
+  public TFigure() {
     size=4;
     figure.add(new boolean[][]{{true, true, true}, {false, true, false}, {false, true, false}});
     figure.add(new boolean[][]{{false, false, true}, {true, true, true}, {false, false, true}});

@@ -1,4 +1,6 @@
-package Aufgabe6;
+package Aufgabe6.Positions.Figures;
+
+import Aufgabe6.Positions.Figure;
 
 import java.util.ArrayList;
 
@@ -9,7 +11,7 @@ public class XFigure extends Figure {
 
 
 
-  XFigure() {
+  public XFigure() {
     figure.add(new boolean[][]{{false, true, false}, {true, true, true}, {false, true, false}});
     size=1;
   }

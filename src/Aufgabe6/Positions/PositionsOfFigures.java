@@ -1,4 +1,9 @@
-package Aufgabe6;
+package Aufgabe6.Positions;
+
+import Aufgabe6.Positions.Figures.DominoFigure;
+import Aufgabe6.Positions.Figures.TFigure;
+import Aufgabe6.Positions.Figures.XFigure;
+import Aufgabe6.Positions.Figures.YFigure;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,16 +14,9 @@ public class PositionsOfFigures {
   public int n;
   public ArrayList<Figure> figures=new ArrayList<>();
 
-  public static void main(String[] args) {
-    PositionsOfFigures t = new PositionsOfFigures(6);
-    t.createPositions();
-    t.positionen.removeIf(i->i==null);
-    for(int[] i:t.positionen){
-      System.out.println(Arrays.toString(i));
-    }
-  }
 
-  PositionsOfFigures(int n) {
+
+  public PositionsOfFigures(int n) {
     this.n = n;
     feld = new int[6][n]; //6 nach unten
     int zähler = 1;
@@ -34,7 +32,7 @@ public class PositionsOfFigures {
 
   }
 
-  public void createPositions() {
+  public ArrayList<int[]> createPositions() {
     for (int y = 0; y < 6; y++) {
       for (int x = 0; x < n; x++) {
         for (Figure figure:figures){
@@ -48,6 +46,9 @@ public class PositionsOfFigures {
 
       }
     }
+    positionen.removeIf(i->i==null);
+    return positionen;
+
 
   }
 

@@ -1,11 +1,13 @@
-package Aufgabe6;
+package Aufgabe6.Positions.Figures;
+
+import Aufgabe6.Positions.Figure;
 
 import java.util.ArrayList;
 
 public class YFigure extends Figure {
   public ArrayList<boolean[][]> figure = new ArrayList<>();
 
-  YFigure(){
+  public YFigure(){
     size=8;
     figure.add(new boolean[][]{{true, false}, {true, true}, {true, false}, {true, false}});
     figure.add(new boolean[][]{{true, true, true, true}, {false, false, true, false}});
