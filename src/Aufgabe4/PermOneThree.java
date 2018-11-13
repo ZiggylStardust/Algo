@@ -6,7 +6,7 @@ import java.util.Scanner;
 import static java.lang.Math.abs;
 
 public class PermOneThree {
-  public static void main (String[] arg){ System.out.println ("TSP");
+  public static void main (String[] arg){
     System.out.println("Endzahl eingeben");
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
@@ -16,18 +16,18 @@ public class PermOneThree {
     int [] c;
     int anzahl=0;
     while ((c = p.getNext()) != null) { // Naechste Permutation
-      boolean correct=true; //speichert, ob bedingung erfüllt sind
+     /* boolean correct=true; //speichert, ob bedingung erfüllt sind
       for (int j=0; j<n-1; j++){
         if(!(abs(c[j]-c[j+1])==4||abs(c[j]-c[j+1])==1)){  //wenn bedingung nicht erfüllt
           correct=false;
           break;
         }
       }
-      if(correct){
+      if(correct){*/
       System.out.println(Arrays.toString(c));
-      anzahl++;
+     anzahl++;
 
-      }
+    //  }
 
 
     }
