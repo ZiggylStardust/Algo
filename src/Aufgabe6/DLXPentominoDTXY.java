@@ -1,5 +1,6 @@
 package Aufgabe6;
 
+import Aufgabe6.Positions.Figure;
 import Aufgabe6.Positions.PositionsOfFigures;
 
 import java.util.ArrayList;
@@ -59,7 +60,12 @@ public class DLXPentominoDTXY {
       System.out.println();
       j++;
     }
-    for (DLXNode current = header[positions.get(0)[0]-1].D; current != current.C; current = current.D) {
+    DLXNode start=header[positions.get(0)[0]].D;
+    DLXNode current=header[0].D;
+
+    for (int[] f:positions) {
+
+
       for (int i = 0; i < länge; i++) {
         if (current.C == header[i]) {
           current = current.R;
@@ -70,12 +76,12 @@ public class DLXPentominoDTXY {
         }
       }
       System.out.println();
-
+      current=current.R.D;
     }
 
-   // DLX.h = header[0];
-    //DLX.search(0);
-    //System.out.println(DLX.cnt);
+   DLX.h = header[0];
+    DLX.search(0);
+    System.out.println(DLX.cnt);
 
 
   }}

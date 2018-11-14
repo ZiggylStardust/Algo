@@ -6,7 +6,6 @@ public class DLX {
 
 
   public static void search(int k) { // finds & counts solutions
-    System.out.println(k);
     if (h.R == h) {
       cnt++;
      return;
