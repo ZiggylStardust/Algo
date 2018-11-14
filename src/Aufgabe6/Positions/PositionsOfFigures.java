@@ -19,6 +19,7 @@ public class PositionsOfFigures {
 
   /**
    * Construktor, adds figures to arrayList and generates field.
+   *
    * @param n number of Columns
    */
   public PositionsOfFigures(int n) {
@@ -39,7 +40,8 @@ public class PositionsOfFigures {
 
   /**
    * Creates the ArrayList of the positions for every figure
-   * @return  the Arraylist of a containing the positions that every figure can take
+   *
+   * @return the Arraylist of a containing the positions that every figure can take
    */
   public ArrayList<int[]> createPositions() {
     for (int y = 0; y < 6; y++) {
@@ -63,10 +65,11 @@ public class PositionsOfFigures {
 
   /**
    * Creates the int[] of a single figure, the position it has in the field
+   *
    * @param figur the figure being worked on
-   * @param x the current x position in the field
-   * @param y the current y position in the field
-   * @return  the int[] of the figure
+   * @param x     the current x position in the field
+   * @param y     the current y position in the field
+   * @return the int[] of the figure
    */
   public int[] matchfigur(boolean[][] figur, int x, int y) {
     ArrayList<Integer> positionen = new ArrayList<>(5);

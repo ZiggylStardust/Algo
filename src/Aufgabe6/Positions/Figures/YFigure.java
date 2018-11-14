@@ -10,10 +10,10 @@ public class YFigure extends Figure {
    * @Author Tobias Fetzer 198318
    * Represents a Y
    */
-  public YFigure(){
+  public YFigure() {
     figure = new ArrayList<>();
 
-    size=8;
+    size = 8;
     figure.add(new boolean[][]{{true, false}, {true, true}, {true, false}, {true, false}});
     figure.add(new boolean[][]{{true, true, true, true}, {false, false, true, false}});
     figure.add(new boolean[][]{{false, true}, {false, true}, {true, true}, {false, true}});

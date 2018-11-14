@@ -12,8 +12,8 @@ public class TFigure extends Figure {
 
 
   public TFigure() {
-    figure=new ArrayList<>();
-    size=4;
+    figure = new ArrayList<>();
+    size = 4;
     figure.add(new boolean[][]{{true, true, true}, {false, true, false}, {false, true, false}});
     figure.add(new boolean[][]{{false, false, true}, {true, true, true}, {false, false, true}});
     figure.add(new boolean[][]{{false, true, false}, {false, true, false}, {true, true, true}});

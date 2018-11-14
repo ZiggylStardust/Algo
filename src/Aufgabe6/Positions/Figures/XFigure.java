@@ -12,7 +12,7 @@ public class XFigure extends Figure {
   public XFigure() {
     figure = new ArrayList<>();
     figure.add(new boolean[][]{{false, true, false}, {true, true, true}, {false, true, false}});
-    size=1;
+    size = 1;
   }
 
 

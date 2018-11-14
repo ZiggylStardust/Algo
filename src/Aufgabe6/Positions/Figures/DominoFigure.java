@@ -10,9 +10,9 @@ import java.util.ArrayList;
  */
 public class DominoFigure extends Figure {
 
-  public DominoFigure(){
-    size=2;
-    figure=new ArrayList<>();
+  public DominoFigure() {
+    size = 2;
+    figure = new ArrayList<>();
     figure.add(new boolean[][]{{true}, {true}});
     figure.add(new boolean[][]{{true, true}});
   }
