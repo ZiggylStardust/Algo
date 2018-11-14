@@ -2,8 +2,10 @@ package Aufgabe6;
 
 import Aufgabe6.Positions.PositionsOfFigures;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -16,28 +18,40 @@ public class DLXPentominoDTXY {
   static ArrayList<int[]> positions;  //Array of figures (
   static int fieldSize; //number of header=largest possible element in a figure
 
-  public static void main(String[] args) {
+
+  public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
     System.out.println("Enter size");
     Scanner scan = new Scanner(System.in);
-    n = scan.nextInt();
-    fieldSize =n*6;
-    PositionsOfFigures t = new PositionsOfFigures(n);
-    positions = t.createPositions();
-    for (int[] i : t.positionen) {
-      System.out.println(Arrays.toString(i));
+    int k = scan.nextInt();
+    PrintWriter writer = new PrintWriter("the-file-name " + k + ".txt", "UTF-8");
+
+    scan.close();
+    for (n = 0; n < k; n++) {
+
+      fieldSize = n * 6;
+      PositionsOfFigures t = new PositionsOfFigures(n);
+      positions = t.createPositions();
+      /*for (int[] i : t.positionen) {
+        System.out.println(Arrays.toString(i));
+      }*/
+      if (n > 0) {
+        createList();
+
+
+        DLX.h = new DLXNode();//creates the header elemnt left to the header column
+        DLX.h.R = header[0];
+        header[0].L = DLX.h;
+        header[fieldSize - 1].R = DLX.h;
+        DLX.h.L = header[fieldSize - 1];
+        DLX.search(0);
+      }
+      System.out.println("a(" + n + ")= " + DLX.cnt);
+      writer.println("a(" + n + ")= " + DLX.cnt);
+      DLX.cnt = 0;
+
+
     }
-    createList();
-
-
-    DLX.h = new DLXNode();//creates the header elemnt left to the header column
-    DLX.h.R = header[0];
-    header[0].L = DLX.h;
-    header[fieldSize - 1].R = DLX.h;
-    DLX.h.L = header[fieldSize - 1];
-    DLX.search(0);
-    System.out.println(DLX.cnt);
-
-
+    writer.close();
   }
 
   /**
@@ -72,9 +86,10 @@ public class DLXPentominoDTXY {
 
   /**
    * Creates one row by connecting the Nodes with it'S neighbours left and right
-   * @param figure the current figure, and int[] with the position of the figure in the field
+   *
+   * @param figure  the current figure, and int[] with the position of the figure in the field
    * @param current the current Node that is being connected
-   * @param start the start node of a row
+   * @param start   the start node of a row
    */
   public static void createRows(int[] figure, DLXNode current, DLXNode start) {
     for (int i = 0; i < figure.length - 1; i++, current = current.R) {
@@ -90,7 +105,8 @@ public class DLXPentominoDTXY {
 
   /**
    * Connects the nodes of a row with the next node above or below it
-   * @param figure the figure being worked on
+   *
+   * @param figure  the figure being worked on
    * @param current the starting node of the figure
    */
   public static void connectRows(int[] figure, DLXNode current) {
