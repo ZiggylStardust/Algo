@@ -4,6 +4,10 @@ import Aufgabe6.Positions.Figure;
 
 import java.util.ArrayList;
 
+/**
+ * @Author Tobias Fetzer 198318
+ * Represents a domino
+ */
 public class DominoFigure extends Figure {
 
   public DominoFigure(){

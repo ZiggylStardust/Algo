@@ -6,16 +6,21 @@ import Aufgabe6.Positions.Figures.XFigure;
 import Aufgabe6.Positions.Figures.YFigure;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
+/**
+ * @Author Tobias Fetzer 198318
+ * Class creates the array of ints, which represent the positions in the field that are filled by a figure
+ */
 public class PositionsOfFigures {
   public int[][] feld;
   public ArrayList<int[]> positionen = new ArrayList<>();
   public int n;
-  public ArrayList<Figure> figures=new ArrayList<>();
+  public ArrayList<Figure> figures = new ArrayList<>();
 
-
-
+  /**
+   * Construktor, adds figures to arrayList and generates field.
+   * @param n number of Columns
+   */
   public PositionsOfFigures(int n) {
     this.n = n;
     feld = new int[6][n]; //6 nach unten
@@ -32,30 +37,41 @@ public class PositionsOfFigures {
 
   }
 
+  /**
+   * Creates the ArrayList of the positions for every figure
+   * @return  the Arraylist of a containing the positions that every figure can take
+   */
   public ArrayList<int[]> createPositions() {
     for (int y = 0; y < 6; y++) {
       for (int x = 0; x < n; x++) {
-        for (Figure figure:figures){
-          while(figure.position<figure.size){
+        for (Figure figure : figures) {
+          while (figure.position < figure.size) {
 
-            positionen.add(matchfigur(figure.rotate(),x,y));
+            positionen.add(matchfigur(figure.rotate(), x, y));
           }
-          figure.position=0;
+          figure.position = 0;
 
         }
 
       }
     }
-    positionen.removeIf(i->i==null);
+    positionen.removeIf(i -> i == null);
     return positionen;
 
 
   }
 
+  /**
+   * Creates the int[] of a single figure, the position it has in the field
+   * @param figur the figure being worked on
+   * @param x the current x position in the field
+   * @param y the current y position in the field
+   * @return  the int[] of the figure
+   */
   public int[] matchfigur(boolean[][] figur, int x, int y) {
     ArrayList<Integer> positionen = new ArrayList<>(5);
     int k = 0;
-    if(figur.length+y>6||figur[0].length+x>n){
+    if (figur.length + y > 6 || figur[0].length + x > n) {
       return null;
     }
 
@@ -66,7 +82,7 @@ public class PositionsOfFigures {
         }
       }
     }
-    return positionen.stream().mapToInt(i->i).toArray();
+    return positionen.stream().mapToInt(i -> i).toArray();
 
 
   }

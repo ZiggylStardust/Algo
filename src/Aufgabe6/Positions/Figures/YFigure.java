@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 public class YFigure extends Figure {
 
+  /**
+   * @Author Tobias Fetzer 198318
+   * Represents a Y
+   */
   public YFigure(){
     figure = new ArrayList<>();
 
