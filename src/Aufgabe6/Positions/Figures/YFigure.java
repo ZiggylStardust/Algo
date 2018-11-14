@@ -5,9 +5,10 @@ import Aufgabe6.Positions.Figure;
 import java.util.ArrayList;
 
 public class YFigure extends Figure {
-  public ArrayList<boolean[][]> figure = new ArrayList<>();
 
   public YFigure(){
+    figure = new ArrayList<>();
+
     size=8;
     figure.add(new boolean[][]{{true, false}, {true, true}, {true, false}, {true, false}});
     figure.add(new boolean[][]{{true, true, true, true}, {false, false, true, false}});
@@ -19,9 +20,4 @@ public class YFigure extends Figure {
     figure.add(new boolean[][]{{true, false}, {true, false}, {true, true}, {true, false}});
     figure.add(new boolean[][]{{true, true, true, true}, {false, true, false, false}});
   }
-  @Override
-  public boolean[][] rotate(){
-    return figure.get(position++);
-  }
-
 }
