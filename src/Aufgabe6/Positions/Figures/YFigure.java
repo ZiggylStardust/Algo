@@ -11,17 +11,17 @@ public class YFigure extends Figure {
    * Represents a Y
    */
   public YFigure() {
-    figure = new ArrayList<>();
+    orientationsOfFigure = new ArrayList<>();
 
-    size = 8;
-    figure.add(new boolean[][]{{true, false}, {true, true}, {true, false}, {true, false}});
-    figure.add(new boolean[][]{{true, true, true, true}, {false, false, true, false}});
-    figure.add(new boolean[][]{{false, true}, {false, true}, {true, true}, {false, true}});
-    figure.add(new boolean[][]{{false, true, false, false}, {true, true, true, true}});
+    numberOfOrientations = 8;
+    orientationsOfFigure.add(new boolean[][]{{true, false}, {true, true}, {true, false}, {true, false}});
+    orientationsOfFigure.add(new boolean[][]{{true, true, true, true}, {false, false, true, false}});
+    orientationsOfFigure.add(new boolean[][]{{false, true}, {false, true}, {true, true}, {false, true}});
+    orientationsOfFigure.add(new boolean[][]{{false, true, false, false}, {true, true, true, true}});
 
-    figure.add(new boolean[][]{{false, true}, {true, true}, {false, true}, {false, true}});
-    figure.add(new boolean[][]{{false, false, true, false}, {true, true, true, true}});
-    figure.add(new boolean[][]{{true, false}, {true, false}, {true, true}, {true, false}});
-    figure.add(new boolean[][]{{true, true, true, true}, {false, true, false, false}});
+    orientationsOfFigure.add(new boolean[][]{{false, true}, {true, true}, {false, true}, {false, true}});
+    orientationsOfFigure.add(new boolean[][]{{false, false, true, false}, {true, true, true, true}});
+    orientationsOfFigure.add(new boolean[][]{{true, false}, {true, false}, {true, true}, {true, false}});
+    orientationsOfFigure.add(new boolean[][]{{true, true, true, true}, {false, true, false, false}});
   }
 }

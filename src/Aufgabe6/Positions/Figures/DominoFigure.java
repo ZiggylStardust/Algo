@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class DominoFigure extends Figure {
 
   public DominoFigure() {
-    size = 2;
-    figure = new ArrayList<>();
-    figure.add(new boolean[][]{{true}, {true}});
-    figure.add(new boolean[][]{{true, true}});
+    numberOfOrientations = 2;
+    orientationsOfFigure = new ArrayList<>();
+    orientationsOfFigure.add(new boolean[][]{{true}, {true}});
+    orientationsOfFigure.add(new boolean[][]{{true, true}});
   }
 }

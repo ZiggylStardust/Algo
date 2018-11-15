@@ -12,19 +12,20 @@ import java.util.ArrayList;
  * Class creates the array of ints, which represent the positions in the field that are filled by a figure
  */
 public class PositionsOfFigures {
-  public int[][] feld;
-  public ArrayList<int[]> positionen = new ArrayList<>();
+  public int[][] field;    //The field, filled with numbers from 1 to n*6
+  public ArrayList<int[]> positions = new ArrayList<>(); /*result ArrayList, represents every possible
+                                                          orientation of the figures in the field*/
   public int n;
-  public ArrayList<Figure> figures = new ArrayList<>();
+  public ArrayList<Figure> figures = new ArrayList<>();   //ArrayList of the Figure Classes, the T,Y,X and domino
 
   /**
-   * Construktor, adds figures to arrayList and generates field.
+   * Constructor, adds figures to arrayList and generates field.
    *
    * @param n number of Columns
    */
   public PositionsOfFigures(int n) {
     this.n = n;
-    feld = new int[6][n]; //6 nach unten
+    field = new int[6][n]; //6 down
     int zähler = 1;
     figures.add(new DominoFigure());
     figures.add(new XFigure());
@@ -32,60 +33,60 @@ public class PositionsOfFigures {
     figures.add(new TFigure());
     for (int y = 0; y < 6; y++) {
       for (int x = 0; x < n; x++, zähler++) {
-        feld[y][x] = zähler;
+        field[y][x] = zähler;
       }
     }
 
   }
 
   /**
-   * Creates the ArrayList of the positions for every figure
+   * Creates the ArrayList of the positions for every figure and it's orientations
    *
-   * @return the Arraylist of a containing the positions that every figure can take
+   * @return the ArrayList of a containing the positions/orientations that every figure can take
    */
   public ArrayList<int[]> createPositions() {
     for (int y = 0; y < 6; y++) {
       for (int x = 0; x < n; x++) {
         for (Figure figure : figures) {
-          while (figure.position < figure.size) {
+          while (figure.orientation < figure.numberOfOrientations) {
 
-            positionen.add(matchfigur(figure.rotate(), x, y));
+            positions.add(matchFigure(figure.rotate(), x, y));
           }
-          figure.position = 0;
-
+          figure.orientation = 0;
         }
 
       }
     }
-    positionen.removeIf(i -> i == null);
-    return positionen;
+    positions.removeIf(i -> i == null);
+    return positions;
 
 
   }
 
   /**
-   * Creates the int[] of a single figure, the position it has in the field
+   * Creates the int[] of a single figure, the orientation it has in the field
    *
-   * @param figur the figure being worked on
-   * @param x     the current x position in the field
-   * @param y     the current y position in the field
-   * @return the int[] of the figure
+   * @param figure  the current orientation of the figure being worked on
+   * @param x       the current x position in the field
+   * @param y       the current y position in the field
+   * @return        the position of the figure in the field, represented as an int[] showing which parts of the
+   *                field are covered by it. Returns Null if the orientation doesn't fit in the field
    */
-  public int[] matchfigur(boolean[][] figur, int x, int y) {
-    ArrayList<Integer> positionen = new ArrayList<>(5);
+  public int[] matchFigure(boolean[][] figure, int x, int y) {
+    ArrayList<Integer> position = new ArrayList<>(5);
     int k = 0;
-    if (figur.length + y > 6 || figur[0].length + x > n) {
+    if (figure.length + y > 6 || figure[0].length + x > n) {
       return null;
     }
 
-    for (int i = 0; i < figur.length; i++) {
-      for (int j = 0; j < figur[0].length; j++) {
-        if (figur[i][j]) {
-          positionen.add(feld[i + y][j + x]);
+    for (int i = 0; i < figure.length; i++) {
+      for (int j = 0; j < figure[0].length; j++) {
+        if (figure[i][j]) {
+          position.add(field[i + y][j + x]);
         }
       }
     }
-    return positionen.stream().mapToInt(i -> i).toArray();
+    return position.stream().mapToInt(i -> i).toArray();
 
 
   }

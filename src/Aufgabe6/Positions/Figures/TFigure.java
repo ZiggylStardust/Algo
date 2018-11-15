@@ -12,12 +12,12 @@ public class TFigure extends Figure {
 
 
   public TFigure() {
-    figure = new ArrayList<>();
-    size = 4;
-    figure.add(new boolean[][]{{true, true, true}, {false, true, false}, {false, true, false}});
-    figure.add(new boolean[][]{{false, false, true}, {true, true, true}, {false, false, true}});
-    figure.add(new boolean[][]{{false, true, false}, {false, true, false}, {true, true, true}});
-    figure.add(new boolean[][]{{true, false, false}, {true, true, true}, {true, false, false}});
+    orientationsOfFigure = new ArrayList<>();
+    numberOfOrientations = 4;
+    orientationsOfFigure.add(new boolean[][]{{true, true, true}, {false, true, false}, {false, true, false}});
+    orientationsOfFigure.add(new boolean[][]{{false, false, true}, {true, true, true}, {false, false, true}});
+    orientationsOfFigure.add(new boolean[][]{{false, true, false}, {false, true, false}, {true, true, true}});
+    orientationsOfFigure.add(new boolean[][]{{true, false, false}, {true, true, true}, {true, false, false}});
   }
 
 }

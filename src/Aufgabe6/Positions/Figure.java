@@ -4,21 +4,22 @@ import java.util.ArrayList;
 
 /**
  * @Author Tobias Fetzer 198318
- * Represents a figure, all specific figures inherit from it.
+ * Represents a generic figure, all specific figures inherit from it.
+ * A figure is represented as an arrayList of boolean[][], each boolean[][] representing one orientation of it
  */
 public class Figure {
-  public int position;
-  public int size;
-  public ArrayList<boolean[][]> figure;
+  public int orientation;
+  public int numberOfOrientations;
+  public ArrayList<boolean[][]> orientationsOfFigure;
 
 
   /**
-   * Rotates the figure by calling the next figure the array
+   * Rotates the orientationsOfFigure by calling the next orientation of the array
    *
-   * @return the next figure
+   * @return the next orientation
    */
   public boolean[][] rotate() {
-    return figure.get(position++);
+    return orientationsOfFigure.get(orientation++);
   }
 
 

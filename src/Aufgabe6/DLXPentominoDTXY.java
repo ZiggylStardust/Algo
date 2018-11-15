@@ -23,7 +23,7 @@ public class DLXPentominoDTXY {
     System.out.println("Enter size");
     Scanner scan = new Scanner(System.in);
     int k = scan.nextInt();
-    PrintWriter writer = new PrintWriter("the-file-name " + k + ".txt", "UTF-8");
+    PrintWriter writer = new PrintWriter("values for " + k + ".txt", "UTF-8");
 
     scan.close();
     for (n = 0; n < k; n++) {
@@ -31,7 +31,7 @@ public class DLXPentominoDTXY {
       fieldSize = n * 6;
       PositionsOfFigures t = new PositionsOfFigures(n);
       positions = t.createPositions();
-      /*for (int[] i : t.positionen) {
+      /*for (int[] i : t.positions) {
         System.out.println(Arrays.toString(i));
       }*/
       if (n > 0) {
@@ -87,7 +87,7 @@ public class DLXPentominoDTXY {
   /**
    * Creates one row by connecting the Nodes with it'S neighbours left and right
    *
-   * @param figure  the current figure, and int[] with the position of the figure in the field
+   * @param figure  the current figure, and int[] with the orientation of the orientationsOfFigure in the field
    * @param current the current Node that is being connected
    * @param start   the start node of a row
    */
@@ -106,7 +106,7 @@ public class DLXPentominoDTXY {
   /**
    * Connects the nodes of a row with the next node above or below it
    *
-   * @param figure  the figure being worked on
+   * @param figure  the figure oreintation being worked on
    * @param current the starting node of the figure
    */
   public static void connectRows(int[] figure, DLXNode current) {
