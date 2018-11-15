@@ -2,9 +2,6 @@ package Aufgabe6;
 
 import Aufgabe6.Positions.PositionsOfFigures;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,39 +16,33 @@ public class DLXPentominoDTXY {
   static int fieldSize; //number of header=largest possible element in a figure
 
 
-  public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+  public static void main(String[] args) {
     System.out.println("Enter size");
     Scanner scan = new Scanner(System.in);
-    int k = scan.nextInt();
-    PrintWriter writer = new PrintWriter("values for " + k + ".txt", "UTF-8");
+    n = scan.nextInt();
 
     scan.close();
-    for (n = 0; n < k; n++) {
 
-      fieldSize = n * 6;
-      PositionsOfFigures t = new PositionsOfFigures(n);
-      positions = t.createPositions();
-      /*for (int[] i : t.positions) {
+    fieldSize = n * 6;
+    PositionsOfFigures t = new PositionsOfFigures(n);
+    positions = t.createPositions();
+      /*for (int[] i : t.positions) { //Output of position arrays
         System.out.println(Arrays.toString(i));
       }*/
-      if (n > 0) {
-        createList();
+    if (n > 0) {
+      createList();
 
 
-        DLX.h = new DLXNode();//creates the header elemnt left to the header column
-        DLX.h.R = header[0];
-        header[0].L = DLX.h;
-        header[fieldSize - 1].R = DLX.h;
-        DLX.h.L = header[fieldSize - 1];
-        DLX.search(0);
-      }
-      System.out.println("a(" + n + ")= " + DLX.cnt);
-      writer.println("a(" + n + ")= " + DLX.cnt);
-      DLX.cnt = 0;
-
-
+      DLX.h = new DLXNode();//creates the header elemnt left to the header column
+      DLX.h.R = header[0];
+      header[0].L = DLX.h;
+      header[fieldSize - 1].R = DLX.h;
+      DLX.h.L = header[fieldSize - 1];
+      DLX.search(0);
     }
-    writer.close();
+    System.out.println("a(" + n + ")= " + DLX.cnt);
+    DLX.cnt = 0;
+
   }
 
   /**
