@@ -19,7 +19,6 @@ public class PermOneThree {
       results.add(i);
       if(i>max) max=i;
 
-
     }
     //Collections.sort(results);
     int[] result=new int[(1<<n-1)];
