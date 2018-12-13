@@ -16,13 +16,19 @@ public class WorstMergeSort {
         System.out.println(210+"→ "+sortCount(210));
     }
 
+    /*
+    Recursively calculates the number of comparisons in the worst case. Merge sorts worst case has n-1 comparisons for
+    a single merge operation, plus the comparisons for the merge operations of the subarrays that are merged
+     */
     public static int sortCount(int n){
         if(n==0||n==1){
             return 0;
         }
         if(n==2) return 1;
         if(w[n]!=0) return w[n];
-        if(n%2!=0){ w[n]= sortCount(n/2)+sortCount(((n+1)/2))+(n-1);}
+        //If the length is uneven, separate into the smaller left and bigger right part
+        if(n%2!=0)w[n]= sortCount(n/2)+sortCount(((n+1)/2))+(n-1);
+        //If it's even only uses one method call, and multiply it by 2.
         else w[n]=2*sortCount(n/2)+n-1;
         return w[n];
 
