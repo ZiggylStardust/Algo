@@ -1,19 +1,26 @@
 package Aufgabe9;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class WorstMergeSort {
     static int[] w;
-    public static void main(String[] args) {
-        //Scanner sc=new Scanner(System.in);
-        //int n=sc.nextInt();
-        for(int n=0;n<=13;n++){
-            w=new int[n+1];
-            System.out.println(n+"→ "+sortCount(n));
-        }
-        w=new int[210+1];
+    public static void main(String[] args) throws IOException {
+        Scanner sc=new Scanner(System.in);
 
-        System.out.println(210+"→ "+sortCount(210));
+        int ziel=sc.nextInt();
+        PrintWriter writer = new PrintWriter("worstMerge bis"+ziel+".txt", "UTF-8");
+
+
+        w=new int[ziel+1];
+        for(int n=0;n<=ziel;n++){
+//            w=new int[n+1];
+            writer.println(n+"--> "+sortCount(n));
+        }
+  //      w=new int[210+1];
+
+    //    System.out.println(210+"→ "+sortCount(210));
+        writer.close();
     }
 
     /*

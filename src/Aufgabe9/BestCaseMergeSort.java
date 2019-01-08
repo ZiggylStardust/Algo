@@ -6,9 +6,9 @@ public class BestCaseMergeSort {
     public static void main(String[] args) {
         //Scanner sc=new Scanner(System.in);
         //int n=sc.nextInt();
-        for (int n = 0; n <= 13; n++) {
+        for (int n = 0; n <= 100; n++) {
             w = new int[n + 1];
-            System.out.println(n + "→ " + sortCount(n));
+            System.out.print(sortCount(n)+", ");
         }
         w = new int[210 + 1];
 

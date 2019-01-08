@@ -7,15 +7,15 @@ public class MoveMergeSort {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        //for(int n=0;n<=13;n++){
+       //int n = sc.nextInt();
+        for(int n=0;n<=13;n++){
         w = new int[n + 1];
-        System.out.println(n + "→ " + sortCount(n));
+        System.out.print(sortCount(n)+", ");
     }
         //w=new int[210+1];
 
     //System.out.println(210+"→ "+sortCount(210));
-   // }
+    }
 
     /*
     Recursively calculates the number of move operations. Merge sorts uses 2n move operations (moving all elements to
